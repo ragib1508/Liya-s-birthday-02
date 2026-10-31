@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100719">
+<title>To My Liya ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #ff8fbe;
+    --soft-pink: #ffd3e6;
+    --gold: #f5d5a0;
+    --bg: #100719;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    background: var(--bg);
+    color: #fff5fa;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+button { font: inherit; }
+button:focus-visible { outline: 2px solid white; outline-offset: 5px; }
+
+#sky {
+    position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+    background:
+        radial-gradient(ellipse at 50% 10%, rgba(117,39,99,.30), transparent 55%),
+        radial-gradient(ellipse at 15% 85%, rgba(66,24,91,.32), transparent 50%),
+        linear-gradient(155deg, #100719, #211026 55%, #12091c);
+}
+.star {
+    position: absolute; background: #fff2fa; border-radius: 50%;
+    animation: twinkle var(--duration) ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+    from { opacity: .15; transform: scale(.65); }
+    to { opacity: .95; transform: scale(1.3); }
+}
+#floating {
+    position: fixed; inset: 0; z-index: 2; overflow: hidden; pointer-events: none;
+}
+.float-item {
+    position: absolute; bottom: -50px;
+    animation: floatUp var(--duration) linear forwards; opacity: 0;
+    will-change: transform;
+}
+@keyframes floatUp {
+    10% { opacity: .8; }
+    100% { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+.screen {
+    position: relative; z-index: 1; min-height: 100svh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 45px 20px; text-align: center;
+}
+#intro { transition: opacity .8s ease, transform .8s ease; }
+.eyebrow {
+    color: var(--gold); font-size: 10px; letter-spacing: 5px;
+    text-transform: uppercase; margin-bottom: 28px;
+}
+.little-heart {
+    font-size: 35px; color: var(--pink); margin-bottom: 18px;
+    animation: heartbeat 1.5s infinite; filter: drop-shadow(0 0 15px #ff6eae);
+}
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.12); }
+}
+.intro-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(49px, 11vw, 78px); font-weight: 400; line-height: 1.2;
+    color: var(--soft-pink); text-shadow: 0 0 35px rgba(255,100,173,.3);
+}
+.intro-subtitle {
+    margin-top: 20px; font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 15px; color: #e9c8dc; line-height: 1.9; max-width: 310px;
+}
+.envelope {
+    margin: 42px 0 28px; width: 125px; height: 105px; position: relative;
+    display: grid; place-items: center; border: 1px solid rgba(255,179,213,.4);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(255,143,190,.16), rgba(255,255,255,.035));
+    box-shadow: 0 0 45px rgba(255,92,168,.12);
+    animation: envelopeGlow 3s infinite alternate;
+}
+.envelope span { font-size: 47px; filter: drop-shadow(0 0 12px rgba(255,126,184,.5)); }
+@keyframes envelopeGlow { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+.primary-btn {
+    border: 1px solid rgba(255,211,230,.65);
+    background: linear-gradient(135deg, #ffb2d2, #f4d4ac);
+    color: #42152e; border-radius: 50px; padding: 15px 28px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px; cursor: pointer;
+    box-shadow: 0 0 30px rgba(255,130,187,.18);
+    transition: transform .25s, box-shadow .25s;
+}
+.primary-btn:active { transform: scale(.96); }
+.primary-btn:hover { box-shadow: 0 0 40px rgba(255,130,187,.38); }
+.tiny-note { margin-top: 17px; font-size: 10px; color: #a994aa; letter-spacing: 1px; }
+
+#birthday { display: none; opacity: 0; animation: reveal .9s ease forwards; }
+@keyframes reveal { to { opacity: 1; } }
+.top-tag {
+    display: inline-block; border: 1px solid rgba(245,213,160,.4); border-radius: 30px;
+    padding: 9px 16px; color: var(--gold); font-size: 9px; letter-spacing: 3px; margin-bottom: 28px;
+}
+.main-title {
+    font-family: 'Great Vibes', cursive; font-size: clamp(62px,13vw,100px);
+    line-height: 1.08; font-weight: 400; color: var(--soft-pink);
+    text-shadow: 0 0 35px rgba(255,103,175,.32);
+}
+.name { display: block; margin-top: 4px; color: var(--gold); }
+.birthday-line {
+    margin-top: 22px; color: #e8cada; font-family: 'Playfair Display',serif;
+    font-style: italic; font-size: 16px; line-height: 1.8;
+}
+.cake {
+    font-size: 76px; margin: 28px 0;
+    filter: drop-shadow(0 0 22px rgba(255,139,191,.25));
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+@keyframes cakeFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+.ornament { color: var(--gold); letter-spacing: 9px; font-size: 15px; margin: 10px 0 28px; }
+.letter {
+    width: 100%; max-width: 510px; padding: 30px 23px; text-align: left;
+    border: 1px solid rgba(255,184,217,.24); border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+    box-shadow: 0 20px 80px rgba(0,0,0,.14); backdrop-filter: blur(12px);
+}
+.letter-heading {
+    text-align: center; font-family: 'Great Vibes',cursive; font-size: 38px;
+    color: var(--pink); font-weight: 400; margin-bottom: 24px;
+}
+.letter p { color: #f1dce8; font-size: 13px; line-height: 2.05; margin-bottom: 17px; font-weight: 300; }
+.letter p strong { color: #ffd0e4; font-weight: 500; }
+.letter .bangla { font-size: 14px; line-height: 2.1; color: #ffe5f0; }
+.signature { text-align: right; margin-top: 25px; font-family: 'Great Vibes',cursive; color: var(--gold); font-size: 33px; }
+.signature small {
+    display: block; font-family: 'Poppins',sans-serif; font-size: 10px;
+    color: #c9a9bd; letter-spacing: 2px; margin-top: 5px;
+}
+.surprise-area { width: 100%; max-width: 510px; margin-top: 24px; }
+.surprise-btn {
+    width: 100%; padding: 17px 15px; border: 1px solid rgba(245,213,160,.35);
+    background: rgba(245,213,160,.07); color: var(--gold); border-radius: 14px;
+    font-size: 12px; letter-spacing: 1px; cursor: pointer; transition: background .3s;
+}
+.surprise-btn:hover { background: rgba(245,213,160,.13); }
+#secret {
+    display: none; padding: 27px 22px; margin-top: 16px;
+    border: 1px solid rgba(255,184,217,.25); border-radius: 18px;
+    background: rgba(255,143,190,.06); animation: reveal .8s ease forwards;
+}
+#secret h2 { font-family: 'Great Vibes',cursive; font-size: 39px; color: var(--pink); font-weight: 400; margin-bottom: 15px; }
+#secret p { color: #f1dce8; font-size: 13px; line-height: 2.1; margin-bottom: 13px; }
+.final-heart { font-size: 31px; margin: 24px 0 10px; animation: heartbeat 1.5s infinite; }
+.footer { padding: 35px 15px 15px; text-align: center; color: #a992a8; font-size: 10px; letter-spacing: 1px; line-height: 2; }
+.footer span { color: var(--pink); }
+
+@media (max-width: 400px) {
+    .screen { padding: 35px 16px; }
+    .letter { padding: 25px 18px; }
+    .letter p { font-size: 12px; }
+    .letter .bangla { font-size: 13px; }
+    .cake { font-size: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+
+/* Our memories gallery */
+.memory-section {
+    width: min(100%, 680px);
+    margin: 38px auto 0;
+    padding: 0 4px;
+}
+.memory-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(42px, 9vw, 58px);
+    line-height: 1.2;
+    color: var(--soft-pink);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 8px;
+    text-shadow: 0 0 25px rgba(255,103,175,.25);
+}
+.memory-subtitle {
+    text-align: center;
+    color: #d9bfd0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+.memory-card {
+    position: relative;
+    padding: 6px;
+    border: 1px solid rgba(255,184,217,.28);
+    border-radius: 17px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+    cursor: zoom-in;
+    transition: transform .25s ease, border-color .25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.memory-card:active { transform: scale(.975); }
+.memory-card:hover { border-color: rgba(255,184,217,.58); }
+.memory-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 11px;
+}
+.memory-card::after {
+    content: '♡';
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0,0,0,.7);
+    pointer-events: none;
+}
+.memory-hint {
+    color: #ad91a8;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+#photoViewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 14px;
+    background: rgba(8,4,12,.94);
+    backdrop-filter: blur(12px);
+}
+#photoViewer.show { display: flex; }
+.viewer-inner {
+    position: relative;
+    width: min(100%, 560px);
+    max-height: 92svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+#viewerImage {
+    display: block;
+    max-width: 100%;
+    max-height: 78svh;
+    object-fit: contain;
+    border: 1px solid rgba(255,184,217,.45);
+    border-radius: 15px;
+    box-shadow: 0 0 45px rgba(255,105,175,.15);
+}
+#viewerCaption { color: #f6ddea; font-family: 'Playfair Display',serif; font-style: italic; font-size: 13px; }
+.viewer-close {
+    position: absolute;
+    top: -13px;
+    right: -4px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+    color: white;
+    background: rgba(35,18,34,.9);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+@media (min-width: 620px) {
+    .memory-grid { gap: 16px; }
+    .memory-card { padding: 8px; border-radius: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .memory-card { transition: none; }
+}
+
+</style>
+</head>
+
+<body>
+<div id="sky"></div>
+<div id="floating"></div>
+
+<section class="screen" id="intro">
+    <div class="eyebrow">A little surprise for someone special</div>
+    <div class="little-heart">♥</div>
+    <h1 class="intro-title">To My<br>Beautiful Liya</h1>
+    <p class="intro-subtitle">Some people make the world beautiful<br>just by being in it.</p>
+    <div class="envelope"><span>💌</span></div>
+    <button class="primary-btn" id="openBtn">OPEN MY HEART &nbsp; ♡</button>
+    <p class="tiny-note">MADE WITH LOVE, JUST FOR YOU</p>
+</section>
+
+<main id="birthday">
+    <section class="screen">
+        <div class="top-tag">✦ TODAY IS ALL ABOUT YOU ✦</div>
+        <h1 class="main-title">Happy Birthday<span class="name">Liya ♡</span></h1>
+        <p class="birthday-line">To the girl who makes my world a little brighter.</p>
+        <div class="cake">🎂</div>
+        <div class="ornament">✧ ♡ ✧ ♡ ✧</div>
+
+        <article class="letter">
+            <h2 class="letter-heading">My Dearest Liya,</h2>
+
+            <p>
+                If I could give you one thing in this world,
+                I would give you the ability to see yourself
+                through my eyes. Only then would you understand
+                how incredibly special you are to me. ❤️
+            </p>
+
+            <p class="bangla">
+                জানো Liya, কিছু মানুষ জীবনে আসে আর ধীরে ধীরে
+                পুরো পৃথিবীটাকেই অন্যরকম সুন্দর করে দেয়।
+                আমার কাছে তুমি ঠিক তেমনই একজন।
+                তোমার হাসি, তোমার কথা, তোমার ছোট ছোট অভিমান—
+                সবকিছুতেই আমার কাছে আলাদা একটা মায়া আছে। 💗
+            </p>
+
+            <p>
+                On your birthday, I don't just wish you happiness.
+                I wish you the courage to chase every dream,
+                the strength to overcome every difficult day,
+                and the peace of knowing that you are deeply
+                loved and appreciated.
+            </p>
+
+            <p class="bangla">
+                তোমার জীবনের প্রতিটা স্বপ্ন পূরণ হোক।
+                তুমি নিজের মতো করে অনেক দূর এগিয়ে যাও,
+                মন খুলে হাসো, আর জীবনের প্রতিটা সুন্দর মুহূর্ত
+                উপভোগ করো। তোমার মুখের হাসিটা যেন সবসময়
+                এমনই সুন্দর থাকে। 🌸
+            </p>
+
+            <p>
+                I cannot promise that every day will be perfect.
+                But I can promise that what you mean to me
+                is not something I take for granted.
+                You are a beautiful part of my world,
+                and I am grateful for every moment we share.
+            </p>
+
+            <p class="bangla">
+                আর একটা কথা—
+                সবসময় নিজের যত্ন নিও, নিজের স্বপ্নগুলোকে
+                ভালোবেসো, আর কখনো ভুলে যেয়ো না যে
+                তুমি নিজের মতো করেই ভীষণ স্পেশাল। ❤️
+            </p>
+
+            <p>
+                <strong>
+                    Happy Birthday, my favourite person.
+                    May life be as beautiful to you
+                    as your presence has made my world.
+                </strong>
+            </p>
+
+            <div class="signature">
+                Yours, with love ❤️
+                <small>RAGIB ♡ LIYA</small>
+            </div>
+        </article>
+
+
+        <section class="memory-section" aria-labelledby="memoryHeading">
+            <h2 class="memory-heading" id="memoryHeading">Our Little Memories ♡</h2>
+            <p class="memory-subtitle">A few moments together, a thousand reasons to smile.</p>
+            <div class="memory-grid">
+                <button class="memory-card" type="button" data-photo="1" aria-label="Open memory photo 1">
+                    <img src="photo-01.jpg" alt="A special memory together, photo 1" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="2" aria-label="Open memory photo 2">
+                    <img src="photo-02.jpg" alt="A special memory together, photo 2" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="3" aria-label="Open memory photo 3">
+                    <img src="photo-03.jpg" alt="A special memory together, photo 3" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="4" aria-label="Open memory photo 4">
+                    <img src="photo-04.jpg" alt="A special memory together, photo 4" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="5" aria-label="Open memory photo 5">
+                    <img src="photo-05.jpg" alt="A special memory together, photo 5" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="6" aria-label="Open memory photo 6">
+                    <img src="photo-06.jpg" alt="A special memory together, photo 6" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="7" aria-label="Open memory photo 7">
+                    <img src="photo-07.jpg" alt="A special memory together, photo 7" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="8" aria-label="Open memory photo 8">
+                    <img src="photo-08.jpg" alt="A special memory together, photo 8" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="9" aria-label="Open memory photo 9">
+                    <img src="photo-09.jpg" alt="A special memory together, photo 9" loading="lazy" decoding="async">
+                </button>
+                <button class="memory-card" type="button" data-photo="10" aria-label="Open memory photo 10">
+                    <img src="photo-10.jpg" alt="A special memory together, photo 10" loading="lazy" decoding="async">
+                </button>
+            </div>
+            <p class="memory-hint">TAP ANY PHOTO TO SEE IT BIGGER ♡</p>
+        </section>
+
+        <div class="surprise-area">
+            <button class="surprise-btn" id="secretBtn">✨ &nbsp; THERE'S ONE MORE THING...</button>
+
+            <div id="secret">
+                <h2>Just Between Us 💌</h2>
+
+                <p>
+                    পৃথিবীর সব সুন্দর শব্দ দিয়েও হয়তো
+                    তোমাকে বোঝাতে পারব না, তুমি আমার কাছে কতটা স্পেশাল।
+                </p>
+
+                <p>
+                    তবে আজকের এই ছোট্ট উপহারটার মধ্যে
+                    আমার অনেকগুলো না-বলা কথা আর
+                    তোমার জন্য অনেকখানি ভালোবাসা রেখে দিলাম।
+                </p>
+
+                <p>
+                    তোমার জন্মদিনে আমার একটাই চাওয়া—
+                    তুমি ভালো থেকো, নিজের স্বপ্ন পূরণ করো,
+                    আর জীবনের সুন্দর মুহূর্তগুলো মন ভরে উপভোগ করো।
+                </p>
+
+                <p>
+                    <strong>
+                        Happy Birthday again, Liya.
+                        You deserve so many beautiful things. ❤️
+                    </strong>
+                </p>
+
+                <div class="final-heart">💗</div>
+                <h2>Always Special</h2>
+                <p>This little corner of the internet was made especially for you.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            A LITTLE PIECE OF MY HEART<br>
+            MADE ESPECIALLY FOR <span>LIYA ♥</span><br>
+            WITH LOVE FROM RAGIB
+        </div>
+    </section>
+</main>
+
+
+<div id="photoViewer" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="viewer-inner">
+        <button class="viewer-close" id="viewerClose" type="button" aria-label="Close photo">×</button>
+        <img id="viewerImage" src="" alt="Expanded memory photo">
+        <p id="viewerCaption">A little moment to remember ♡</p>
+    </div>
+</div>
+
+<script>
+(function () {
+    "use strict";
+
+    const sky = document.getElementById("sky");
+    const floating = document.getElementById("floating");
+    const intro = document.getElementById("intro");
+    const birthday = document.getElementById("birthday");
+    const openBtn = document.getElementById("openBtn");
+    const secretBtn = document.getElementById("secretBtn");
+    const secret = document.getElementById("secret");
+
+    let opened = false;
+    let secretOpened = false;
+
+    // Photo gallery lightbox
+    const photoViewer = document.getElementById("photoViewer");
+    const viewerImage = document.getElementById("viewerImage");
+    const viewerClose = document.getElementById("viewerClose");
+    const galleryCards = Array.from(document.querySelectorAll(".memory-card"));
+
+    function closePhotoViewer() {
+        photoViewer.classList.remove("show");
+        viewerImage.src = "";
+        document.body.style.overflow = "";
+    }
+
+    galleryCards.forEach(function (card) {
+        card.addEventListener("click", function () {
+            const image = card.querySelector("img");
+            viewerImage.src = image.getAttribute("src");
+            viewerImage.alt = image.alt;
+            photoViewer.classList.add("show");
+            document.body.style.overflow = "hidden";
+            viewerClose.focus();
+        });
+    });
+
+    viewerClose.addEventListener("click", closePhotoViewer);
+    photoViewer.addEventListener("click", function (event) {
+        if (event.target === photoViewer) closePhotoViewer();
+    });
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && photoViewer.classList.contains("show")) {
+            closePhotoViewer();
+        }
+    });
+
+
+    // Starry night sky
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement("span");
+        star.className = "star";
+
+        const size = Math.random() * 2.5 + 0.5;
+        star.style.width = size + "px";
+        star.style.height = size + "px";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.setProperty("--duration", (1.5 + Math.random() * 3) + "s");
+        star.style.animationDelay = Math.random() * 3 + "s";
+
+        sky.appendChild(star);
+    }
+
+    // Floating hearts and petals
+    const symbols = ["♡", "♥", "✧", "🌸", "💕", "✨"];
+
+    function createFloating() {
+        if (document.hidden) return;
+
+        const item = document.createElement("span");
+        item.className = "float-item";
+        item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.fontSize = (12 + Math.random() * 18) + "px";
+        item.style.color = Math.random() > 0.5 ? "#ff9fc8" : "#f5d5a0";
+        item.style.setProperty("--duration", (7 + Math.random() * 7) + "s");
+
+        floating.appendChild(item);
+        item.addEventListener("animationend", () => item.remove(), { once: true });
+    }
+
+    setInterval(createFloating, 550);
+
+    // Reveal the birthday page
+    openBtn.addEventListener("click", function () {
+        if (opened) return;
+        opened = true;
+
+        intro.style.opacity = "0";
+        intro.style.transform = "scale(.96)";
+
+        setTimeout(function () {
+            intro.style.display = "none";
+            birthday.style.display = "block";
+            window.scrollTo({ top: 0, behavior: "auto" });
+        }, 700);
+    });
+
+    // Toggle secret message
+    secretBtn.addEventListener("click", function () {
+        secretOpened = !secretOpened;
+        secret.style.display = secretOpened ? "block" : "none";
+
+        secretBtn.textContent = secretOpened
+            ? "♡ CLOSE YOUR SECRET MESSAGE"
+            : "✨ THERE'S ONE MORE THING...";
+
+        if (secretOpened) {
+            secret.scrollIntoView({ behavior: "smooth", block: "center" });
+            celebrate();
+        }
+    });
+
+    // Celebration particles
+    function celebrate() {
+        const celebrationSymbols = ["💖", "💕", "✨", "🌸", "♥"];
+
+        for (let i = 0; i < 35; i++) {
+            setTimeout(function () {
+                const particle = document.createElement("span");
+
+                particle.textContent =
+                    celebrationSymbols[Math.floor(Math.random() * celebrationSymbols.length)];
+
+                particle.style.position = "fixed";
+                particle.style.left = Math.random() * 100 + "vw";
+                particle.style.top = "-30px";
+                particle.style.zIndex = "10";
+                particle.style.pointerEvents = "none";
+                particle.style.fontSize = (15 + Math.random() * 15) + "px";
+
+                document.body.appendChild(particle);
+
+                const animation = particle.animate([
+                    { transform: "translateY(0) rotate(0deg)", opacity: 1 },
+                    {
+                        transform: "translateY(" + (window.innerHeight + 60) + "px) rotate(400deg)",
+                        opacity: 0
+                    }
+                ], {
+                    duration: 2200 + Math.random() * 2200,
+                    easing: "ease-in"
+                });
+
+                animation.onfinish = () => particle.remove();
+            }, i * 45);
+        }
+    }
+})();
+</script>
+</body>
+</html>
